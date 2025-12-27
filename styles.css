@@ -1,10 +1,8 @@
 body {
-    font-family: system-ui, -apple-system, sans-serif;
-    font-size: 13px;
-    margin: 8px;
-    width: 320px;
-    background: #f8f9fb;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
   h1 {
     font-size: 14px;
@@ -27,18 +25,11 @@ body {
   }
 
   .panel {
-    background: white;
-    border: 1px solid #ddd;
-    padding: 6px;
-    margin-top: 8px;
-  }
+  flex: 1;
+  overflow: hidden;
+}
 
-  pre {
-    font-family: ui-monospace, monospace;
-    font-size: 11px;
-    max-height: 180px;
-    overflow: auto;
-    background: #fafafa;
-    padding: 6px;
-    border: 1px solid #eee;
-  }
+pre {
+  height: 100%;
+  overflow: auto;
+}

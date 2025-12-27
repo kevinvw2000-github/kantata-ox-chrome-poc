@@ -12,3 +12,14 @@ document.getElementById("whoami").onclick = async () => {
   document.getElementById("output").textContent =
     JSON.stringify(data, null, 2);
 };
+
+document.getElementById("getuserid").onclick = async () => {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  chrome.tabs.sendMessage(tab.id, { type: "GET_USER_EMAIL" });
+};
+
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.type === "USER_EMAIL_RESULT") {
+    document.getElementById("output").textContent = msg.email || "User email not found";
+  }
+});

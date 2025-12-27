@@ -1,9 +1,18 @@
 {
   "manifest_version": 3,
-  "name": "Kantata OX OAuth POC",
-  "version": "0.1",
-  "action": {
-    "default_popup": "popup.html"
+  "name": "Kantata OX Inspector",
+  "version": "0.2",
+  "side_panel": { "default_path": "panel.html" },
+  "permissions": ["tabs", "sidePanel"],
+  "host_permissions": ["https://*.onrender.com/*"],
+  "action": { "default_title": "Open Kantata OX Side Panel" },
+  "background": { "service_worker": "background.js"
   },
-  "permissions": ["tabs"]
+  "content_scripts": [
+    {
+      "matches": ["https://app.mavenlink.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+  
 }
